@@ -1,4 +1,4 @@
-package es.macero.dev.restexample;
+package ControllerTest;
 
 class SpanishGreeting {
 

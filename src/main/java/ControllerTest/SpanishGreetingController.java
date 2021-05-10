@@ -1,4 +1,4 @@
-package es.macero.dev.restexample;
+package ControllerTest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class SpanishGreetingController {
         spanishGreetings.add(new SpanishGreeting("Qué tal?!"));
         spanishGreetings.add(new SpanishGreeting("Buenas!"));
     }
-
+    
     @GetMapping("/{id}")
     public SpanishGreeting getSpanishGreetingById(@PathVariable("id") final int id) {
         return spanishGreetings.get(id - 1); // list index starts with 0 but we prefer to start on 1
@@ -29,6 +29,14 @@ public class SpanishGreetingController {
     public SpanishGreeting getRandom() {
         return spanishGreetings.get(new Random().nextInt(spanishGreetings.size()));
     }
+    
+    @PostMapping("/hi")
+    public TestResponse getRandom2(@RequestBody String data) {
+    	System.out.println(data);
+    	
+        return new TestResponse("hello");
+    }
+    
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
